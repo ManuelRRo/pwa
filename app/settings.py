@@ -11,6 +11,7 @@ https://docs.djangoproject.com/en/4.1/ref/settings/
 """
 
 from pathlib import Path
+import os
 
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
 BASE_DIR = Path(__file__).resolve().parent.parent
@@ -38,6 +39,7 @@ INSTALLED_APPS = [
     'django.contrib.messages',
     'django.contrib.staticfiles',
     'myapp',
+    'pwa',
 ]
 
 MIDDLEWARE = [
@@ -122,3 +124,27 @@ STATIC_URL = 'static/'
 # https://docs.djangoproject.com/en/4.1/ref/settings/#default-auto-field
 
 DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
+
+#---------------------------------------------------------------
+STATICFILES_DIRS = [
+    os.path.join(BASE_DIR, 'myapp/static'),
+]
+PWA_APP_NAME = 'My App'
+
+PWA_APP_DESCRIPTION = "Simulator"
+
+PWA_APP_ICONS = [
+    {
+        'src': '/static/img/asd.png',
+        'sizes': '512x512'
+    }
+]
+
+PWA_APP_SPLASH_SCREEN = [
+    {
+        'src': '/static/img/asd.png',
+        'sizes': '512x512'
+    }
+]
+
+#PWA_SERVICE_WORKER_PATH = os.path.join(BASE_DIR, 'myapp/templates', 'serviceworker.js')
